@@ -7,25 +7,17 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/satyagvv-git/learn.git'
             }
         }
-    }
-
-    stages {
+    
         stage('terraform init') {
             steps {
                 sh 'terraform init'
             }
         }
-    }
-
-    stages {
         stage('terraform plan') {
             steps {
                 sh 'terraform plan'
             }
         }
-    }
-
-    stages {
         stage('terraform apply') {
             steps {
                 sh 'terraform apply -auto-approve'
